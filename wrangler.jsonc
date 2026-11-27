@@ -1,9 +1,0 @@
-{
-  "name": "barcode-redirects",
-  "main": "worker.js",
-  "compatibility_date": "2026-01-01",
-  "assets": {
-    "directory": "./cloudflare-deploy",
-    "binding": "ASSETS"
-  }
-}
