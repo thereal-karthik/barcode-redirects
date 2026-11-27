@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Plate Tables</title><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><style>:root{--bg:#f6f8fb;--card:#fff;--ink:#1b2733;--mute:#5a6b7d;--line:#d5dde6;--navy:#17365d;--tint:#e8eef5;--sel:#17365d;--selink:#fff;--ring:#1f6feb;
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Precipitant Plate Tables - Cherezov Lab</title><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><style>:root{--bg:#f6f8fb;--card:#fff;--ink:#1b2733;--mute:#5a6b7d;--line:#d5dde6;--navy:#17365d;--tint:#e8eef5;--sel:#17365d;--selink:#fff;--ring:#1f6feb;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161d;--card:#18212b;--ink:#e6edf3;--mute:#93a4b5;--line:#2c3947;--navy:#0d2342;--tint:#22303f;--sel:#6ea8ff;--selink:#10161d;--ring:#6ea8ff;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#10161d;--card:#18212b;--ink:#e6edf3;--mute:#93a4b5;--line:#2c3947;--navy:#0d2342;--tint:#22303f;--sel:#6ea8ff;--selink:#10161d;--ring:#6ea8ff;color-scheme:dark}
@@ -169,7 +169,7 @@ v.append(E('div',{class:'card'},E('p',null,'Choose a spreadsheet with a Plate ta
 function render(){var v=$('#view'),h=location.hash.slice(1),t;v.replaceChildren();
 if(h==='upload')vUpload(v);else if((t=ST.tables.filter(function(x){return x.slug===h})[0]))vTable(v,t);else vTables(v);
 document.querySelectorAll('nav a').forEach(function(a){a.setAttribute('aria-current',String(a.getAttribute('href')==='#'+(h==='upload'?'upload':'tables')))})}
-$('#root').append(E('header',null,E('h1',null,'Plate Tables'),E('nav',null,E('a',{href:'#tables'},'Tables'),E('a',{href:'#upload'},'Upload a Table'))),E('main',null,E('p',{id:'msg',class:'msg',role:'status'}),E('div',{id:'view'})));
+$('#root').append(E('header',null,E('h1',null,'Precipitant Plate Tables - Cherezov Lab'),E('nav',null,E('a',{href:'#tables'},'Tables'),E('a',{href:'#upload'},'Upload a Table'))),E('main',null,E('p',{id:'msg',class:'msg',role:'status'}),E('div',{id:'view'})));
 window.addEventListener('hashchange',render);render();
 /* tables registered after this file was built are served by the API */
 fetch('/api/tables').then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.tables)return;var added=false;j.tables.forEach(function(t){if(!ST.tables.some(function(x){return x.slug===t.slug})){ST.tables.push(t);added=true}});if(added&&!busy)render()}).catch(function(){});
